@@ -1,0 +1,81 @@
+<html>
+  <body>
+    <!-- whole - the whole website(to set background) -->
+    <div class="whole">
+      <!-- declared for form design (color and size) -->
+      <div class="form">
+        <!-- distinction from signup form -->
+        <div class="login-form">
+          <!-- "b" is used to make the text bold -->
+          <b class="title">LOGIN</b>
+
+          <!-- [formGroup] in login.component.ts -->
+          <!-- declared as a form for submit button -->
+          <form [formGroup]="loginForm">
+            <div class="input-container">
+              <input
+                type="email"
+                class="input-field"
+                formControlName="email"
+                placeholder="Enter your email"
+              />
+              <!-- unicons icon-->
+              <i class="uil uil-envelope-alt"></i>
+            </div>
+            <!-- bootstrap design for blank email -->
+            <!-- "small"  makes the text font size one size smaller -->
+            <small
+              *ngIf="
+                loginForm.controls['email'].dirty &&
+                loginForm.hasError('required', 'email')
+              "
+              class="text-danger"
+              >*Email is <strong>required</strong>
+            </small>
+
+            <div class="input-container">
+              <input
+                type="password"
+                class="input-field"
+                formControlName="password"
+                placeholder="Enter your password"
+              />
+              <!-- unicons icon-->
+              <i class="uil uil-unlock-alt"></i>
+            </div>
+
+            <!--  for blank password -->
+            <small
+              *ngIf="
+                loginForm.controls['password'].dirty &&
+                loginForm.hasError('required', 'password')
+              "
+              class="text-danger"
+              >*Password is <strong>required</strong>
+            </small>
+
+            <div class="forgot-pw">
+              <!-- "a" is used for a hyperlink to be created-->
+              <a class="text">Forgot password?</a>
+            </div>
+
+            <div class="button">
+              <button (click)="onSubmit()" type="submit" class="submit_btn">
+                LOGIN NOW
+              </button>
+            </div>
+
+            <div class="login-signup">
+              <!-- span is only a generic container for phrasing content -->
+              <span class="text"
+                >Don't have an account?
+                <!-- routerLink is declared in app-routing.module.ts -->
+                <a routerLink="/signup" class="text signup-link">Sign Up</a>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

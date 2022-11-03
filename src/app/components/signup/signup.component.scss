@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", "sans-serif";
+}
+    
+.whole{
+    height: 100%;
+    width: 100%;
+    background-image: url(mybackground.png);
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+
+}
+.form{
+    max-width: 550px;
+    width: 100%;
+    position: relative;
+    margin: 6% auto;
+    background:white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+
+}
+
+.form .signup-form{
+    padding: 30px;
+}
+.form .signup-form .title{
+    position: relative;
+    font-size: 30px;
+    font-weight: bold;
+}
+.signup-form .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 25px;
+}
+.form .input-container{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input-container input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    border-bottom: 1px solid #999;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.input-container i{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%)
+}
+
+.form .text{
+    color: #333;
+    font-size: 15px;
+}     
+.form a.text{
+    color: blue;
+    text-decoration: none;
+}
+.form a:hover{
+    text-decoration:underline;
+}
+.form .button{
+    margin-top: 30px;
+}
+.form .error-text{
+    background: #f8d7da;
+    padding: 8px 0;
+    border-radius: 10px;
+    color: #8b3e46;
+    border: 1px solid;
+    text-align: center;
+}
+.submit_btn{
+    font-weight: bold;
+    width:85%;
+    position: center;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block; 
+    margin: 25px; 
+    background: linear-gradient(to right,#ff913b, #00bbbb);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.submit_btn:hover{
+    background: linear-gradient(to right,#ffc23b, #00bb9c);
+}

@@ -1,0 +1,184 @@
+<html>
+  <body>
+    <!-- whole - the whole website(to set background) -->
+    <div class="whole">
+      <!-- declared for form design (color and size) -->
+      <div class="form">
+        <!-- distinction from login form -->
+        <div class="signup-form">
+          <!-- "b" is used to make the text bold -->
+          <b class="title">REGISTER</b>
+
+          <!-- [formGroup] in signup.component.ts -->
+          <!-- declared as a form for register button -->
+          <form [formGroup]="signupForm">
+            <div class="input-container">
+              <input
+                type="text"
+                class="input-field"
+                formControlName="fname"
+                placeholder="Enter First Name"
+                [pattern]="fnamePtn"
+                required
+              />
+              <!-- unicons icon-->
+              <i class="uil uil-users-alt"></i>
+            </div>
+            <!--  for blank first name -->
+            <small
+              *ngIf="
+                signupForm.controls['fname'].dirty &&
+                signupForm.hasError('required', 'fname')
+              "
+              class="text-danger"
+              >*First Name is <strong>required</strong>
+            </small>
+
+            <small
+              *ngIf="
+                signupForm.controls['fname'].dirty &&
+                signupForm.hasError('pattern', 'fname')
+              "
+              class="text-danger"
+              >*First Name should only contain
+              <strong>alphabetic characters</strong>
+            </small>
+
+            <div class="input-container">
+              <input
+                type="text"
+                class="input-field"
+                formControlName="lname"
+                placeholder="Enter Last Name"
+                [pattern]="lnamePtn"
+                required
+              />
+              <i class="uil uil-users-alt"></i>
+            </div>
+            <!-- for blank last name-->
+            <small
+              *ngIf="
+                signupForm.controls['lname'].dirty &&
+                signupForm.hasError('required', 'lname')
+              "
+              class="text-danger"
+              >*Last Name is <strong>required</strong>
+            </small>
+            <small
+              *ngIf="
+                signupForm.controls['lname'].dirty &&
+                signupForm.hasError('pattern', 'lname')
+              "
+              class="text-danger"
+              >*Last Name should only contain
+              <strong>alphabetic characters</strong>
+            </small>
+            <!-- [(ngModel)]="email"-->
+
+            <div class="input-container">
+              <input
+                type="text"
+                class="input-field"
+                formControlName="email"
+                placeholder="Enter Email Address"
+                [pattern]="emailPtn"
+                required
+              />
+              <!-- unicons icon-->
+              <i class="uil uil-envelope-alt"></i>
+            </div>
+            <!-- for blank email -->
+            <small
+              *ngIf="
+                signupForm.controls['email'].dirty &&
+                signupForm.hasError('required', 'email')
+              "
+              class="text-danger"
+              >*Email is <strong>required</strong>
+            </small>
+            <small
+              *ngIf="
+                signupForm.controls['email'].dirty &&
+                signupForm.hasError('pattern', 'email')
+              "
+              class="text-danger"
+              >*Please enter a <strong>valid email address</strong>
+            </small>
+            <!-- [(ngModel)]="password" -->
+            <div class="input-container">
+              <input
+                type="password"
+                class="input-field"
+                formControlName="password"
+                placeholder="Enter Password"
+                required
+              />
+              <i class="uil uil-unlock-alt"></i>
+            </div>
+            <!-- for blank password -->
+            <small
+              *ngIf="
+                signupForm.controls['password'].dirty &&
+                signupForm.hasError('required', 'password')
+              "
+              class="text-danger"
+              >*Password is <strong>required</strong>
+            </small>
+            <!-- for short password or password less than 6 characters -->
+            <small
+              *ngIf="
+                signupForm.controls['password'].dirty &&
+                signupForm.hasError('minlength', 'password')
+              "
+              class="text-danger"
+              >*Password must contain <strong>at least 6 characters</strong>
+            </small>
+
+            <div class="input-container">
+              <input
+                type="password"
+                class="input-field"
+                formControlName="confirmpassword"
+                placeholder="Confirm Password"
+                required
+              />
+              <i class="uil uil-unlock-alt"></i>
+            </div>
+            <!--  for blank confirm password -->
+            <small
+              *ngIf="
+                signupForm.controls['confirmpassword'].dirty &&
+                signupForm.hasError('required', 'confirmpassword')
+              "
+              class="text-danger"
+              >*Confirm Password is <strong>required</strong>
+            </small>
+            <!--  for confirm password not matching password-->
+            <small
+              *ngIf="
+                signupForm.controls['confirmpassword'].dirty &&
+                signupForm.hasError('MustMatch', 'confirmpassword')
+              "
+              class="text-danger"
+              >*Passwords <strong>do not match</strong>
+            </small>
+
+            <div class="button">
+              <button (click)="onSignup()" type="submit" class="submit_btn">
+                REGISTER NOW
+              </button>
+            </div>
+
+            <div class="login-signup">
+              <span class="text"
+                >Already have an account?
+                <!-- "a" is used for a hyperlink to be created-->
+                <a routerLink="/login" class="text signup-link">Login</a>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
